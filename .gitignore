@@ -1,0 +1,7 @@
+.ipynb_checkpoints
+.vscode
+
+.env*
+!.env.example
+
+*.parquet
