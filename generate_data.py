@@ -13,7 +13,8 @@ client = Client()
 
 symbol = "BTCUSDT"
 start_str = "2017-08-17 04:00:00"
-end_str = "2023-04-16 21:42:00"
+end_str = "2023-04-17 00:00:00"
+output_filename = f"data/{symbol}_{start_str}_{end_str}.parquet"
 
 # calculate mins for tqdm progress bar
 fmt = "%Y-%m-%d %H:%M:%S"
@@ -30,7 +31,7 @@ data_generator = client.get_historical_klines_generator(
 
 def parse_raw_candle(c):
     return {
-        "timestamp": c[0],
+        "time": c[0],
         "open": float(c[1]),
         "high": float(c[2]),
         "low": float(c[3]),
@@ -66,4 +67,4 @@ df["close_time"] = pd.to_datetime(df["close_time"], unit="ms")
 # Convert DataFrame to Apache Arrow Table
 table = pa.Table.from_pandas(df)
 # Write data as parquet with Brotli compression (most space efficient type of compression)
-pq.write_table(table, "data.parquet")
+pq.write_table(table, output_filename)
