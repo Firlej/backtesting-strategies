@@ -2,7 +2,7 @@
 
 
 ```bash
-pip install python-dotenv numpy pandas python-binance pandas_ta matplotlib requests backoff seaborn matrix scipy
+pip install python-dotenv numpy pandas matplotlib requests seaborn ccxt ipykernel tqdm ccxt
 pip list --format=freeze > requirements.txt
 ```
 

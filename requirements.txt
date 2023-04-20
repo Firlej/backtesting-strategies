@@ -58,6 +58,7 @@ setuptools==67.6.1
 six==1.16.0
 stack-data==0.6.2
 tornado==6.3
+tqdm==4.65.0
 traitlets==5.9.0
 typing_extensions==4.5.0
 tzdata==2023.3
